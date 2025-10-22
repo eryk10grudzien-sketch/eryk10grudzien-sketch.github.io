@@ -119,6 +119,55 @@
     /* Wstrząs (shake) przy braku zgody */
     @keyframes shake{10%,90%{transform:translateX(-1px)}20%,80%{transform:translateX(2px)}30%,50%,70%{transform:translateX(-4px)}40%,60%{transform:translateX(4px)}}
     .btn.error-shake{animation:shake .35s ease}
+	  /* ===== MOBILE TWEAKS (<= 480px) ===== */
+@media (max-width: 480px){
+
+  /* Header compact */
+  .nav{ padding:10px 0; gap:12px }
+  .brand{ gap:10px }
+  .logo{ width:28px; height:28px; border-radius:8px }
+  .brand h1{ font-size:18px }
+
+  /* Zmniejsz przełącznik języka */
+  .lang button{ padding:.28rem .5rem; font-size:.85rem }
+
+  /* CTA w headerze mniejsze lub ukryte */
+  .cta{ padding:.6rem .9rem; font-size:.9rem }
+  /* jeśli chcesz ukryć CTA w headerze całkiem, odkomentuj: */
+  /* .cta{ display:none } */
+
+  /* Hero – jedna kolumna + węższe odstępy */
+  .hero{ padding:54px 0 24px }
+  .hero .wrap{ grid-template-columns:1fr; gap:18px }
+  .title{ font-size:clamp(22px, 7vw, 34px) }
+  .subtitle{ font-size:.95rem }
+
+  /* CTA w hero jako pełna szerokość, pod sobą */
+  .hero-ctas{ flex-direction:column; gap:10px }
+  .hero-ctas .btn{ width:100% }
+
+  /* Karta z obrazkiem – niech się nie „pompowuje” */
+  .card-visual{ padding:14px }
+  .card-visual img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover }
+
+  /* Siatki – jedna kolumna */
+  .offers{ grid-template-columns:1fr }
+  .about{ grid-template-columns:1fr; gap:16px }
+
+  /* Formularz – czytelniejsze pola, checkbox ładniejszy */
+  form{ gap:10px }
+  input, textarea{ font-size:16px; padding:.85rem .9rem } /* 16px = brak zoomu w iOS */
+  input[type="checkbox"]{
+    width:20px; height:20px; accent-color: var(--accent);
+    transform: translateY(2px);
+  }
+  /* status formularza bliżej przycisku */
+  #form-status{ font-size:.95rem; margin-top:6px }
+}
+
+/* Nie tylko na telefonie – lekka kosmetyka checkboxa wszędzie */
+label[for="consent"]{ display:flex; align-items:flex-start; gap:10px; }
+
   </style>
 </head>
 <body>
@@ -280,10 +329,13 @@
             <label for="message" data-i18n="contact.form.msgL">Wiadomość</label>
             <textarea id="message" name="message" required placeholder="Opisz krótko potrzeby projektu…"></textarea>
           </div>
-          <label style="display:flex;gap:8px;align-items:flex-start">
-            <input type="checkbox" required aria-describedby="rodo" />
-            <span id="rodo" data-i18n="contact.form.rodo">Wyrażam zgodę na kontakt w celu odpowiedzi na wiadomość.</span>
-          </label>
+          <label for="consent" style="display:flex;gap:8px;align-items:flex-start">
+  <input id="consent" type="checkbox" required aria-describedby="rodo" />
+  <span id="rodo" data-i18n="contact.form.rodo">
+    Wyrażam zgodę na kontakt w celu odpowiedzi na wiadomość.
+  </span>
+</label>
+
           <input type="hidden" name="_subject" value="Nowa wiadomość z portfolio (Eryk Grudzień)" />
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
           <button class="btn primary" type="submit" data-i18n="contact.form.submit">Wyślij</button>
@@ -549,6 +601,7 @@
   </script>
 </body>
 </html>
+
 
 
 
