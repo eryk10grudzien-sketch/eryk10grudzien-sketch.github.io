@@ -142,6 +142,18 @@
     }
 
     label[for="consent"]{ display:flex; align-items:flex-start; gap:10px; }
+	
+	.card-visual video.hero-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/10;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+
   </style>
 </head>
 <body>
@@ -183,9 +195,21 @@
             <a class="btn" href="#offers" data-i18n="hero.ctaSecondary">Zobacz ofertę</a>
           </div>
         </div>
-        <div class="card-visual" aria-hidden="true">
-          <img src="img/naglowek.png" alt="" loading="lazy" style="border-radius:12px;aspect-ratio:16/10;object-fit:cover;background:linear-gradient(135deg, rgba(34,211,238,.15), rgba(245,158,11,.15));">
-        </div>
+    <div class="card-visual">
+  <video class="hero-video"
+         autoplay
+         muted
+         loop
+         playsinline
+         preload="metadata"
+         poster="img/naglowek.png">
+    <source src="img/film.mp4" type="video/mp4">
+    Twoja przeglądarka nie obsługuje wideo.
+  </video>
+</div>
+
+
+
       </div>
     </section>
 
