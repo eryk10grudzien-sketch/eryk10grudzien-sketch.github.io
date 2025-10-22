@@ -13,16 +13,12 @@
   <meta name="robots" content="index,follow" />
   <title>Eryk Grudzień – Portfolio</title>
 
-  <!-- Favicon (data URL, bez dodatkowych plików) -->
-  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%2322D3EE"/><stop offset="1" stop-color="%23F59E0B"/></linearGradient></defs><rect rx="10" ry="10" width="48" height="48" fill="url(%23g)"/><path d="M14 30h11a7 7 0 0 0 0-14H14m0 0v14" fill="none" stroke="%230b1428" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/favicon.png?v=3" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="img/favicon.png?v=3">
-<link rel="shortcut icon" href="img/favicon.png?v=3" type="image/png">
-
-
 
   <style>
     :root{ --bg:#0F172A; --surface:#111827; --text:#E2E8F0; --muted:#94A3B8; --accent:#22D3EE; --accent-2:#F59E0B; --ring:0 0 0 3px rgba(34,211,238,.35); --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.35) }
@@ -39,15 +35,9 @@
     header{position:sticky;top:0;z-index:999;background:rgba(15,23,42,.75);backdrop-filter:blur(10px);border-bottom:1px solid rgba(226,232,240,.08)}
     .nav{display:flex;align-items:center;gap:20px;justify-content:space-between;padding:14px 0}
     .brand{display:flex;align-items:center;gap:12px}
-	.logo-img {
-  height: 55px;
-  width: auto;
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  object-fit: contain;
-}
-
+    .logo-img{height:55px;width:auto;border-radius:8px;box-shadow:var(--shadow);object-fit:contain}
     .brand h1{font:700 20px Poppins,Inter,sans-serif;margin:0}
+
     .menu{display:flex;gap:22px;align-items:center}
     .menu a{color:var(--muted)}
     .menu a:hover,.menu a:focus{color:var(--text)}
@@ -113,61 +103,45 @@
 
     /* Status wysyłki */
     #form-status{margin:8px 0 0;font-weight:600}
-    #form-status.error{color:#f87171}   /* czerwony */
-    #form-status.success{color:#34d399} /* zielony */
+    #form-status.error{color:#f87171}
+    #form-status.success{color:#34d399}
 
     /* Wstrząs (shake) przy braku zgody */
     @keyframes shake{10%,90%{transform:translateX(-1px)}20%,80%{transform:translateX(2px)}30%,50%,70%{transform:translateX(-4px)}40%,60%{transform:translateX(4px)}}
     .btn.error-shake{animation:shake .35s ease}
-	  /* ===== MOBILE TWEAKS (<= 480px) ===== */
-@media (max-width: 480px){
 
-  /* Header compact */
-  .nav{ padding:10px 0; gap:12px }
-  .brand{ gap:10px }
-  .logo{ width:28px; height:28px; border-radius:8px }
-  .brand h1{ font-size:18px }
+    /* ===== MOBILE TWEAKS (<= 480px) ===== */
+    @media (max-width:480px){
+      .nav{ padding:10px 0; gap:12px }
+      .brand{ gap:10px }
+      .logo-img{ height:32px; border-radius:8px }
+      .brand h1{ font-size:18px }
 
-  /* Zmniejsz przełącznik języka */
-  .lang button{ padding:.28rem .5rem; font-size:.85rem }
+      .lang button{ padding:.28rem .5rem; font-size:.85rem }
 
-  /* CTA w headerze mniejsze lub ukryte */
-  .cta{ padding:.6rem .9rem; font-size:.9rem }
-  /* jeśli chcesz ukryć CTA w headerze całkiem, odkomentuj: */
-  /* .cta{ display:none } */
+      .cta{ display:none }
 
-  /* Hero – jedna kolumna + węższe odstępy */
-  .hero{ padding:54px 0 24px }
-  .hero .wrap{ grid-template-columns:1fr; gap:18px }
-  .title{ font-size:clamp(22px, 7vw, 34px) }
-  .subtitle{ font-size:.95rem }
+      .hero{ padding:54px 0 24px }
+      .hero .wrap{ grid-template-columns:1fr; gap:18px }
+      .title{ font-size:clamp(22px, 7vw, 34px) }
+      .subtitle{ font-size:.95rem }
 
-  /* CTA w hero jako pełna szerokość, pod sobą */
-  .hero-ctas{ flex-direction:column; gap:10px }
-  .hero-ctas .btn{ width:100% }
+      .hero-ctas{ flex-direction:column; gap:10px }
+      .hero-ctas .btn{ width:100% }
 
-  /* Karta z obrazkiem – niech się nie „pompowuje” */
-  .card-visual{ padding:14px }
-  .card-visual img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover }
+      .card-visual{ padding:14px }
+      .card-visual img{ width:100%; height:auto; aspect-ratio:16/10; object-fit:cover }
 
-  /* Siatki – jedna kolumna */
-  .offers{ grid-template-columns:1fr }
-  .about{ grid-template-columns:1fr; gap:16px }
+      .offers{ grid-template-columns:1fr }
+      .about{ grid-template-columns:1fr; gap:16px }
 
-  /* Formularz – czytelniejsze pola, checkbox ładniejszy */
-  form{ gap:10px }
-  input, textarea{ font-size:16px; padding:.85rem .9rem } /* 16px = brak zoomu w iOS */
-  input[type="checkbox"]{
-    width:20px; height:20px; accent-color: var(--accent);
-    transform: translateY(2px);
-  }
-  /* status formularza bliżej przycisku */
-  #form-status{ font-size:.95rem; margin-top:6px }
-}
+      form{ gap:10px }
+      input, textarea{ font-size:16px; padding:.85rem .9rem }
+      input[type="checkbox"]{ width:20px; height:20px; accent-color:var(--accent); transform:translateY(2px) }
+      #form-status{ font-size:.95rem; margin-top:6px }
+    }
 
-/* Nie tylko na telefonie – lekka kosmetyka checkboxa wszędzie */
-label[for="consent"]{ display:flex; align-items:flex-start; gap:10px; }
-
+    label[for="consent"]{ display:flex; align-items:flex-start; gap:10px; }
   </style>
 </head>
 <body>
@@ -175,11 +149,10 @@ label[for="consent"]{ display:flex; align-items:flex-start; gap:10px; }
 
   <header>
     <div class="container nav" role="navigation" aria-label="Główna nawigacja">
-<div class="brand">
- <!-- logo w headerze -->
-<img src="img/logo1.png?v=2" alt="Logo Eryk Grudzień" class="logo-img">
-  <h1>Eryk Grudzień</h1>
-</div>
+      <div class="brand">
+        <img src="img/logo1.png?v=2" alt="Logo Eryk Grudzień" class="logo-img">
+        <h1>Eryk Grudzień</h1>
+      </div>
 
       <nav class="menu">
         <a href="#about" data-i18n="nav.about">O mnie</a>
@@ -187,8 +160,8 @@ label[for="consent"]{ display:flex; align-items:flex-start; gap:10px; }
         <a href="#work" data-i18n="nav.work">Portfolio</a>
         <a href="#contact" data-i18n="nav.contact">Kontakt</a>
       </nav>
+
       <div style="display:flex;align-items:center;gap:12px">
-        <!-- przełącznik języka -->
         <div class="lang" role="group" aria-label="Language switch">
           <button id="pl" aria-pressed="true">PL</button>
           <button id="en" aria-pressed="false">EN</button>
@@ -217,61 +190,55 @@ label[for="consent"]{ display:flex; align-items:flex-start; gap:10px; }
     </section>
 
     <!-- O MNIE + UMIEJĘTNOŚCI -->
-   <section id="about">
-  <div class="container about">
-    <div class="me">
-      <h3 class="section-title" data-i18n="about.title">O mnie</h3>
+    <section id="about">
+      <div class="container about">
+        <div class="me">
+          <h3 class="section-title" data-i18n="about.title">O mnie</h3>
 
-      <p data-i18n="about.p1">
-        Cześć! Nazywam się Eryk Grudzień, mam 19 lat i jestem w 5 klasie technikum informatycznego.
-        Od pierwszej klasy rozwijam się w kierunku tworzenia stron — od szkolnych projektów po bardziej rozbudowane realizacje.
-      </p>
+          <p data-i18n="about.p1">
+            Cześć! Nazywam się Eryk Grudzień, mam 19 lat i jestem w 5 klasie technikum informatycznego.
+            Od pierwszej klasy rozwijam się w kierunku tworzenia stron — od szkolnych projektów po bardziej rozbudowane realizacje.
+          </p>
+          <p data-i18n="about.p2">
+            Lubię zarówno projektowanie wyglądu, jak i kodowanie. Często korzystam z WordPressa,
+            ale wiele stron tworzę też od podstaw. Zaczynam od planu i koncepcji, a potem decyduję,
+            czy użyć szablonu, czy wszystko zbudować samodzielnie.
+          </p>
+          <p data-i18n="about.p3">
+            Pracuję też w Canvie — dzięki temu szybko przygotowuję spójne grafiki do stron.
+            Jestem młody, ambitny i dokładny. Chcę zdobywać pierwsze zlecenia, żeby rozwijać umiejętności i portfolio.
+          </p>
 
-      <p data-i18n="about.p2">
-        Lubię zarówno projektowanie wyglądu, jak i kodowanie. Często korzystam z WordPressa,
-        ale wiele stron tworzę też od podstaw. Zaczynam od planu i koncepcji, a potem decyduję,
-        czy użyć szablonu, czy wszystko zbudować samodzielnie.
-      </p>
-
-      <p data-i18n="about.p3">
-        Pracuję też w Canvie — dzięki temu szybko przygotowuję spójne grafiki do stron.
-        Jestem młody, ambitny i dokładny. Chcę zdobywać pierwsze zlecenia, żeby rozwijać umiejętności i portfolio.
-      </p>
-
-      <p class="section-sub" data-i18n="skills.subtitle">Technologie i narzędzia, których używam na co dzień</p>
-    </div>
-
-    <div>
-      <h3 class="section-title" data-i18n="skills.title">Umiejętności</h3>
-      <div class="grid offers" role="list">
-        <div class="card" role="listitem">
-          <h3 data-i18n="skills.dev.t">HTML / CSS / JS</h3>
-          <p data-i18n="skills.dev.d">Nowoczesne, responsywne strony z dbałością o detale i wydajność.</p>
-          <span class="chip" data-i18n="skills.level.mid">Poziom: średnio-zaawansowany</span>
+          <p class="section-sub" data-i18n="skills.subtitle">Technologie i narzędzia, których używam na co dzień</p>
         </div>
 
-        <div class="card" role="listitem">
-          <h3 data-i18n="skills.wp.t">WordPress</h3>
-          <p data-i18n="skills.wp.d">Strony oparte o WP – od podstaw lub na dopasowanych szablonach.</p>
-          <span class="chip" data-i18n="skills.level.mid">Poziom: średnio-zaawansowany</span>
-        </div>
-
-        <div class="card" role="listitem">
-          <h3 data-i18n="skills.canva.t">Canva</h3>
-          <p data-i18n="skills.canva.d">Szybkie, estetyczne grafiki: banery, elementy do WWW, social media.</p>
-          <span class="chip" data-i18n="skills.level.mid">Poziom: średnio-zaawansowany</span>
-        </div>
-
-        <div class="card" role="listitem">
-          <h3 data-i18n="skills.ux.t">UX / UI</h3>
-          <p data-i18n="skills.ux.d">Plan układu, czytelność treści, dopasowanie stylu do marki.</p>
-          <span class="chip" data-i18n="skills.level.basic">Poziom: początkujący</span>
+        <div>
+          <h3 class="section-title" data-i18n="skills.title">Umiejętności</h3>
+          <div class="grid offers" role="list">
+            <div class="card" role="listitem">
+              <h3 data-i18n="skills.dev.t">HTML / CSS / JS</h3>
+              <p data-i18n="skills.dev.d">Nowoczesne, responsywne strony z dbałością o detale i wydajność.</p>
+              <span class="chip" data-i18n="skills.level.mid">Poziom: średnio-zaawansowany</span>
+            </div>
+            <div class="card" role="listitem">
+              <h3 data-i18n="skills.wp.t">WordPress</h3>
+              <p data-i18n="skills.wp.d">Strony oparte o WP – od podstaw lub na dopasowanych szablonach.</p>
+              <span class="chip" data-i18n="skills.level.mid">Poziom: średnio-zaawansowany</span>
+            </div>
+            <div class="card" role="listitem">
+              <h3 data-i18n="skills.canva.t">Canva</h3>
+              <p data-i18n="skills.canva.d">Szybkie, estetyczne grafiki: banery, elementy do WWW, social media.</p>
+              <span class="chip" data-i18n="skills.level.mid">Poziom: średnio-zaawansowany</span>
+            </div>
+            <div class="card" role="listitem">
+              <h3 data-i18n="skills.ux.t">UX / UI</h3>
+              <p data-i18n="skills.ux.d">Plan układu, czytelność treści, dopasowanie stylu do marki.</p>
+              <span class="chip" data-i18n="skills.level.basic">Poziom: początkujący</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
+    </section>
 
     <!-- OFERTY -->
     <section id="offers">
@@ -316,7 +283,8 @@ label[for="consent"]{ display:flex; align-items:flex-start; gap:10px; }
       <div class="container">
         <h3 class="section-title" data-i18n="contact.title">Kontakt</h3>
         <p class="section-sub" data-i18n="contact.subtitle">Napisz kilka słów o projekcie – odpowiem najszybciej jak to możliwe.</p>
-        <form action="https://formspree.io/f/xdkwabqw" method="POST" novalidate>
+
+        <form id="contact-form" action="https://formspree.io/f/xdkwabqw" method="POST" novalidate>
           <div>
             <label for="name" data-i18n="contact.form.nameL">Imię</label>
             <input id="name" name="name" type="text" autocomplete="name" required placeholder="Jan Kowalski" />
@@ -329,16 +297,17 @@ label[for="consent"]{ display:flex; align-items:flex-start; gap:10px; }
             <label for="message" data-i18n="contact.form.msgL">Wiadomość</label>
             <textarea id="message" name="message" required placeholder="Opisz krótko potrzeby projektu…"></textarea>
           </div>
+
           <label for="consent" style="display:flex;gap:8px;align-items:flex-start">
-  <input id="consent" type="checkbox" required aria-describedby="rodo" />
-  <span id="rodo" data-i18n="contact.form.rodo">
-    Wyrażam zgodę na kontakt w celu odpowiedzi na wiadomość.
-  </span>
-</label>
+            <input id="consent" type="checkbox" required aria-describedby="rodo" />
+            <span id="rodo" data-i18n="contact.form.rodo">Wyrażam zgodę na kontakt w celu odpowiedzi na wiadomość.</span>
+          </label>
 
           <input type="hidden" name="_subject" value="Nowa wiadomość z portfolio (Eryk Grudzień)" />
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
           <button class="btn primary" type="submit" data-i18n="contact.form.submit">Wyślij</button>
+          <p id="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -363,25 +332,22 @@ label[for="consent"]{ display:flex; align-items:flex-start; gap:10px; }
       'hero.ctaPrimary': "Umów konsultację", 'hero.ctaSecondary': "Zobacz ofertę",
 
       'about.title': "O mnie",
-     // --- ABOUT (PL) ---
-'about.p1': "Cześć! Nazywam się Eryk Grudzień, mam 19 lat i jestem w 5 klasie technikum informatycznego. Od pierwszej klasy rozwijam się w kierunku tworzenia stron — od szkolnych projektów po bardziej rozbudowane realizacje.",
-'about.p2': "Lubię zarówno projektowanie wyglądu, jak i kodowanie. Często korzystam z WordPressa, ale wiele stron tworzę też od podstaw. Zaczynam od planu i koncepcji, a potem decyduję, czy użyć szablonu, czy wszystko zbudować samodzielnie.",
-'about.p3': "Pracuję też w Canvie — dzięki temu szybko przygotowuję spójne grafiki do stron. Jestem młody, ambitny i dokładny. Chcę zdobywać pierwsze zlecenia, żeby rozwijać umiejętności i portfolio.",
+      'about.p1': "Cześć! Nazywam się Eryk Grudzień, mam 19 lat i jestem w 5 klasie technikum informatycznego. Od pierwszej klasy rozwijam się w kierunku tworzenia stron — od szkolnych projektów po bardziej rozbudowane realizacje.",
+      'about.p2': "Lubię zarówno projektowanie wyglądu, jak i kodowanie. Często korzystam z WordPressa, ale wiele stron tworzę też od podstaw. Zaczynam od planu i koncepcji, a potem decyduję, czy użyć szablonu, czy wszystko zbudować samodzielnie.",
+      'about.p3': "Pracuję też w Canvie — dzięki temu szybko przygotowuję spójne grafiki do stron. Jestem młody, ambitny i dokładny. Chcę zdobywać pierwsze zlecenia, żeby rozwijać umiejętności i portfolio.",
 
-// --- SKILLS (PL) ---
-'skills.title': "Umiejętności",
-'skills.subtitle': "Technologie i narzędzia, których używam na co dzień",
-'skills.dev.t': "HTML / CSS / JS",
-'skills.dev.d': "Nowoczesne, responsywne strony z dbałością o detale i wydajność.",
-'skills.wp.t': "WordPress",
-'skills.wp.d': "Strony oparte o WP – od podstaw lub na dopasowanych szablonach.",
-'skills.canva.t': "Canva",
-'skills.canva.d': "Szybkie, estetyczne grafiki: banery, elementy do WWW, social media.",
-'skills.ux.t': "UX / UI",
-'skills.ux.d': "Plan układu, czytelność treści, dopasowanie stylu do marki.",
-'skills.level.mid': "Poziom: średnio-zaawansowany",
-'skills.level.basic': "Poziom: początkujący",
-
+      'skills.title': "Umiejętności",
+      'skills.subtitle': "Technologie i narzędzia, których używam na co dzień",
+      'skills.dev.t': "HTML / CSS / JS",
+      'skills.dev.d': "Nowoczesne, responsywne strony z dbałością o detale i wydajność.",
+      'skills.wp.t': "WordPress",
+      'skills.wp.d': "Strony oparte o WP – od podstaw lub na dopasowanych szablonach.",
+      'skills.canva.t': "Canva",
+      'skills.canva.d': "Szybkie, estetyczne grafiki: banery, elementy do WWW, social media.",
+      'skills.ux.t': "UX / UI",
+      'skills.ux.d': "Plan układu, czytelność treści, dopasowanie stylu do marki.",
+      'skills.level.mid': "Poziom: średnio-zaawansowany",
+      'skills.level.basic': "Poziom: początkujący",
 
       'offers.title': "Oferty", 'offers.note': "Jestem na etapie średnio-zaawansowanym — uczę się i rozwijam przy każdym projekcie.",
       'offers.o1.title': "Strona wizytówka / Landing page", 'offers.o1.desc': "Nowoczesny, szybki i responsywny one-pager dla Twojej marki.",
@@ -412,25 +378,22 @@ label[for="consent"]{ display:flex; align-items:flex-start; gap:10px; }
       'hero.ctaPrimary': "Book a call", 'hero.ctaSecondary': "View services",
 
       'about.title': "About me",
-  // --- ABOUT (EN) ---
-'about.p1': "Hi! I’m Eryk Grudzień, 19, currently in the final year of a technical IT school. Since my first year I’ve been building websites — from school projects to more advanced work.",
-'about.p2': "I enjoy both designing the look and coding features. I often use WordPress, but I also build sites from scratch. I start with a plan and concept, then decide whether to use a template or craft everything myself.",
-'about.p3': "I also work with Canva to quickly create clean, consistent graphics. I’m young, ambitious and detail-oriented. My goal now is to find projects that help me grow and expand my portfolio.",
+      'about.p1': "Hi! I’m Eryk Grudzień, 19, currently in the final year of a technical IT school. Since my first year I’ve been building websites — from school projects to more advanced work.",
+      'about.p2': "I enjoy both designing the look and coding features. I often use WordPress, but I also build sites from scratch. I start with a plan and concept, then decide whether to use a template or craft everything myself.",
+      'about.p3': "I also work with Canva to quickly create clean, consistent graphics. I’m young, ambitious and detail-oriented. My goal now is to find projects that help me grow and expand my portfolio.",
 
-// --- SKILLS (EN) ---
-'skills.title': "Skills",
-'skills.subtitle': "Technologies and tools I use daily",
-'skills.dev.t': "HTML / CSS / JS",
-'skills.dev.d': "Modern, responsive websites with attention to detail and performance.",
-'skills.wp.t': "WordPress",
-'skills.wp.d': "WP-based sites — from scratch or with tailored templates.",
-'skills.canva.t': "Canva",
-'skills.canva.d': "Fast, clean visuals: banners, web elements, social media.",
-'skills.ux.t': "UX / UI",
-'skills.ux.d': "Layout planning, content clarity, brand-aligned styling.",
-'skills.level.mid': "Level: intermediate",
-'skills.level.basic': "Level: beginner",
-
+      'skills.title': "Skills",
+      'skills.subtitle': "Technologies and tools I use daily",
+      'skills.dev.t': "HTML / CSS / JS",
+      'skills.dev.d': "Modern, responsive websites with attention to detail and performance.",
+      'skills.wp.t': "WordPress",
+      'skills.wp.d': "WP-based sites — from scratch or with tailored templates.",
+      'skills.canva.t': "Canva",
+      'skills.canva.d': "Fast, clean visuals: banners, web elements, social media.",
+      'skills.ux.t': "UX / UI",
+      'skills.ux.d': "Layout planning, content clarity, brand-aligned styling.",
+      'skills.level.mid': "Level: intermediate",
+      'skills.level.basic': "Level: beginner",
 
       'offers.title': "Services", 'offers.note': "I’m at an intermediate stage — learning and improving with every project.",
       'offers.o1.title': "Business card / Landing page website", 'offers.o1.desc': "Modern, fast and responsive one-pager for your brand.",
@@ -454,24 +417,13 @@ label[for="consent"]{ display:flex; align-items:flex-start; gap:10px; }
     }
   };
 
-  /* ========= Inicjalizacja i18n ========= */
+  /* ========= i18n ========= */
   const els = document.querySelectorAll('[data-i18n]');
   const langButtons = { pl: document.getElementById('pl'), en: document.getElementById('en') };
   const metaDesc = document.getElementById('meta-desc');
-  const metaOgUrl = document.querySelector('meta[property="og:url"]');
 
   // Rok w stopce
-  const year = document.getElementById('year') || (() => {
-    const s = document.createElement('span');
-    s.id = 'year';
-    const where = document.querySelector('footer small');
-    if (where) where.prepend(s);
-    return s;
-  })();
-  year.textContent = new Date().getFullYear();
-
-  // Ustaw aktualny og:url
-  if (metaOgUrl) metaOgUrl.setAttribute('content', location.href);
+  const year = document.getElementById('year'); year.textContent = new Date().getFullYear();
 
   function setLang(l){
     const dict = i18n[l] || i18n.pl;
@@ -485,7 +437,6 @@ label[for="consent"]{ display:flex; align-items:flex-start; gap:10px; }
     }
     localStorage.setItem('lang', l);
   }
-
   const preferred = localStorage.getItem('lang') || ((navigator.language || 'pl').startsWith('pl') ? 'pl' : 'en');
   setLang(preferred);
   if (langButtons.pl && langButtons.en) {
@@ -493,115 +444,124 @@ label[for="consent"]{ display:flex; align-items:flex-start; gap:10px; }
     langButtons.en.addEventListener('click', () => setLang('en'));
   }
 
-  /* ========= Walidacja zgody + wysyłka (Formspree AJAX) ========= */
-  const form = document.querySelector('form');
-  if (form) {
-    // status
-    let status = document.getElementById('form-status');
-    if (!status) {
-      status = document.createElement('p');
-      status.id = 'form-status';
-      status.setAttribute('role', 'status');
-      form.appendChild(status);
-    }
+  /* ========= Scrollspy ========= */
+  (() => {
+    const links = [...document.querySelectorAll('.menu a')];
+    const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+    const HEADER_OFFSET = 120;
 
-    const consent = form.querySelector("input[type='checkbox'][required]");
-    const submitBtn = form.querySelector("button[type='submit']");
+    function setActive(idx){
+      links.forEach(l => l.classList.remove('active'));
+      if (links[idx]) links[idx].classList.add('active');
+    }
+    function onScroll(){
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atBottom) { setActive(sections.length - 1); return; }
+
+      let idx = 0;
+      for (let i = 0; i < sections.length; i++){
+        const s = sections[i]; if (!s) continue;
+        const r = s.getBoundingClientRect();
+        const topOK = r.top <= HEADER_OFFSET;
+        const bottomOK = r.bottom > HEADER_OFFSET;
+        if (topOK && bottomOK) { idx = i; break; }
+        if (r.top <= HEADER_OFFSET) idx = i;
+      }
+      setActive(idx);
+    }
+    links.forEach((l, i) => l.addEventListener('click', () => setActive(i)));
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+  })();
+
+  /* ========= Formularz: walidacja + Formspree ========= */
+  (() => {
+    const form = document.getElementById('contact-form');
+    if(!form) return;
+
+    const nameEl    = form.querySelector('#name');
+    const emailEl   = form.querySelector('#email');
+    const msgEl     = form.querySelector('#message');
+    const consentEl = form.querySelector('#consent');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const statusEl  = document.getElementById('form-status');
+
+    const L = (document.documentElement.lang || 'pl').startsWith('pl') ? {
+      nameReq:'Podaj swoje imię.',
+      emailReq:'Podaj adres e-mail.',
+      emailBad:'Wpisz poprawny adres e-mail.',
+      msgReq:'Napisz krótką wiadomość.',
+      consent:'Musisz wyrazić zgodę, aby wysłać wiadomość.',
+      sending:'Wysyłam…',
+      ok:'Dziękuję! Wiadomość została wysłana.',
+      err:'Ups! Coś poszło nie tak. Spróbuj ponownie.'
+    } : {
+      nameReq:'Please enter your name.',
+      emailReq:'Please enter your email.',
+      emailBad:'Please provide a valid email address.',
+      msgReq:'Please write a short message.',
+      consent:'You must accept the consent to send the message.',
+      sending:'Sending…',
+      ok:'Thanks! Your message has been sent.',
+      err:'Oops! Something went wrong. Please try again.'
+    };
+
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     function setStatus(type, msg){
-      status.classList.remove('error','success');
-      if (type) status.classList.add(type);
-      status.textContent = msg;
+      statusEl.classList.remove('error','success');
+      if(type) statusEl.classList.add(type);
+      statusEl.textContent = msg || '';
+    }
+    function invalid(el, msg){
+      el.classList.add('input-invalid');
+      setStatus('error', msg);
+      el.focus({preventScroll:true});
     }
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const l = document.documentElement.lang || 'pl';
+    [nameEl,emailEl,msgEl,consentEl].forEach(el=>{
+      el.addEventListener('input', ()=> el.classList.remove('input-invalid'));
+      el.addEventListener('change', ()=> el.classList.remove('input-invalid'));
+    });
 
-      // brak zgody → blokuj + shake + czerwony komunikat
-      if (consent && !consent.checked) {
-        setStatus('error', i18n[l]['contact.form.noConsent']);
-        if (submitBtn) {
-          submitBtn.classList.add('error-shake');
-          setTimeout(()=> submitBtn.classList.remove('error-shake'), 400);
-        }
-        return;
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+
+      if(!nameEl.value.trim())  return invalid(nameEl,  L.nameReq);
+      if(!emailEl.value.trim()) return invalid(emailEl, L.emailReq);
+      if(!emailRe.test(emailEl.value.trim())) return invalid(emailEl, L.emailBad);
+      if(!msgEl.value.trim())  return invalid(msgEl,   L.msgReq);
+      if(!consentEl.checked){
+        submitBtn.classList.add('error-shake');
+        setTimeout(()=> submitBtn.classList.remove('error-shake'), 400);
+        return setStatus('error', L.consent);
       }
 
-      // wysyłka
-      setStatus('', i18n[l]['contact.form.sending']);
-      if (submitBtn) submitBtn.disabled = true;
+      try{
+        setStatus('', L.sending);
+        submitBtn.disabled = true;
 
-      try {
         const data = new FormData(form);
-        const resp = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+        const resp = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept':'application/json' }
+        });
 
-        if (resp.ok) {
-          setStatus('success', i18n[l]['contact.form.success']);
+        if(resp.ok){
+          setStatus('success', L.ok);
           form.reset();
-        } else {
-          setStatus('error', i18n[l]['contact.form.error']);
+        }else{
+          setStatus('error', L.err);
         }
-      } catch {
-        setStatus('error', i18n[l]['contact.form.error']);
-      } finally {
-        if (submitBtn) submitBtn.disabled = false;
+      }catch(_){
+        setStatus('error', L.err);
+      }finally{
+        submitBtn.disabled = false;
       }
     });
-  }
-
-// ========= Active menu (scrollspy) – wersja z bottom-fix =========
-(() => {
-  const links = [...document.querySelectorAll('.menu a')];
-  const sections = links.map(a => document.querySelector(a.getAttribute('href')));
-  const HEADER_OFFSET = 120; // wysokość sticky nagłówka + zapas
-
-  function setActive(idx){
-    links.forEach(l => l.classList.remove('active'));
-    if (links[idx]) links[idx].classList.add('active');
-  }
-
-  function onScroll(){
-    // jeśli jesteśmy na samym dole strony → aktywuj ostatnią sekcję (Kontakt)
-    const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
-    if (atBottom) { setActive(sections.length - 1); return; }
-
-    let idx = 0;
-    for (let i = 0; i < sections.length; i++){
-      const s = sections[i];
-      if (!s) continue;
-      const rect = s.getBoundingClientRect();
-      const topOK = rect.top <= HEADER_OFFSET;
-      const bottomOK = rect.bottom > HEADER_OFFSET; // sekcja jeszcze „przed” nami się nie skończyła
-      if (topOK && bottomOK) { idx = i; break; }
-      if (rect.top <= HEADER_OFFSET) idx = i; // fallback: ostatnia, która minęła górę
-    }
-    setActive(idx);
-  }
-
-  // podświetl natychmiast po kliknięciu
-  links.forEach((l, i) => l.addEventListener('click', () => setActive(i)));
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  onScroll();
-})();
-
-
-
-
-  /* ========= Plausible (analityka; ładowanie z bieżącą domeną) ========= */
-  (function(){
-    const s = document.createElement('script');
-    s.defer = true;
-    s.src = 'https://plausible.io/js/script.js';
-    s.setAttribute('data-domain', location.hostname);
-    document.head.appendChild(s);
   })();
   </script>
 </body>
 </html>
-
-
-
-
